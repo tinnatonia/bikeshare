@@ -1,8 +1,8 @@
 select bb.start_time, bb.start_station, bb.end_station, bb.duration, 
 	case
 	when date_part('hour', bb.start_time::timestamp) between 6 and 10 then 'AM Commuters'
-	when date_part('hour', bb.start_time::timestamp) between 10 and 3 then 'Midday'
-	when date_part('hour', bb.start_time::timestamp) between 3 and 7 then 'PM Commuters'
+	when date_part('hour', bb.start_time::timestamp) between 10 and 15 then 'Midday'
+	when date_part('hour', bb.start_time::timestamp) between 15 and 19 then 'PM Commuters'
 	else 'Night'
 	end time_of_day
 from(

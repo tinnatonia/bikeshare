@@ -196,8 +196,8 @@ start time, duration, end time
 select bb.start_time, bb.start_station, bb.end_station, bb.duration, 
 	case
 	when date_part('hour', bb.start_time::timestamp) between 6 and 10 then 'AM Commuters'
-	when date_part('hour', bb.start_time::timestamp) between 10 and 3 then 'Midday'
-	when date_part('hour', bb.start_time::timestamp) between 3 and 7 then 'PM Commuters'
+	when date_part('hour', bb.start_time::timestamp) between 10 and 15 then 'Midday'
+	when date_part('hour', bb.start_time::timestamp) between 15 and 19 then 'PM Commuters'
 	else 'Night'
 	end time_of_day
 from(
@@ -220,9 +220,7 @@ from(
 	from bluebikes_2019 bb19
 	where bb19.start_station_id in (74, 67, 58, 36, 22, 42, 53, 20, 60, 47, 23)
 		and bb19.user_type ilike 'Customer'
-) bb
-
-
+) bb;
 
 
 
@@ -231,8 +229,8 @@ from(
 select count(distinct t1.bike_id||'-'||t1.start_time),
 case
 	when date_part('hour', t1.start_time::timestamp) between 6 and 10 then 'AM Commuters'
-	when date_part('hour', t1.start_time::timestamp) between 10 and 3 then 'Midday'
-	when date_part('hour', t1.start_time::timestamp) between 3 and 7 then 'PM Commuters'
+	when date_part('hour', t1.start_time::timestamp) between 10 and 15 then 'Midday'
+	when date_part('hour', t1.start_time::timestamp) between 15 and 19 then 'PM Commuters'
 	else 'Night'
 	end as time_of_day
 from(
