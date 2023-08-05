@@ -6,7 +6,11 @@ end_stations - all end stations 2016-2019, coordinates, and count of rides ended
 start_stations - all start stations 2016-2019, coordinates, and count of rides started there
 readme.md - you are currently reading this. hello!
 
-Notes:
+**Notes:**
+
+Assumptions: 
+-only relevant riders are customer level, not subscriber level
+
 
 Top 10 Stations by trip are as follows: 
 74
