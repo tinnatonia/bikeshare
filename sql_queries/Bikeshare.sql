@@ -1,3 +1,70 @@
+select bb.start_time, date_part('minutes',(bb.end_time-bb.start_time)), bb.user_type
+from bluebikes_2016 bb
+order by 2 desc
+limit 100;
+
+
+--all trips
+select bb16.start_time
+from bluebikes_2016 bb16
+union all
+select bb17.start_time
+from bluebikes_2017 bb17
+union all
+select bb18.start_time
+from bluebikes_2018 bb18
+union all
+select bb19.start_time
+from bluebikes_2019 bb19;
+
+/*drafting
+
+
+select bb.bike_id, bb.earliest_ride, bb.latest_ride, bb.lifespan, sum(bb.rides)
+from(
+	
+	select bb16.bike_id bike_id, min(bb16.start_time) earliest_ride, max(bb16.start_time) latest_ride, (max(bb16.start_time)-min(bb16.start_time)) lifespan, count(bb16.start_time) rides
+	from bluebikes_2016 bb16
+	group by bb16.bike_id
+	union
+	select bb17.bike_id, min(bb17.start_time), max(bb17.start_time), max(bb17.start_time)-min(bb17.start_time), count(bb17.start_time)
+	from bluebikes_2017 bb17
+	 group by bb17.bike_id
+	union
+	select bb18.bike_id, min(bb18.start_time), max(bb18.start_time), max(bb18.start_time)-min(bb18.start_time), count(bb18.start_time)
+	 from bluebikes_2018 bb18
+	 group by bb18.bike_id
+	 union
+	 select bb19.bike_id, min(bb19.start_time), max(bb19.start_time), max(bb19.start_time)-min(bb19.start_time),count(bb19.start_time)
+	 from bluebikes_2019 bb19
+	 group by bb19.bike_id
+	 ) bb
+ group by 1,2,3,4
+ order by 5 desc;
+
+select bike_id, start_station_id, end_station_id, 
+*/
+
+where bike_id = 4223
+
+--peak ride week each year
+select *
+from bluebikes_2016
+where date_part('month',start_time) = 7 and date_part('day',start_time) between 1 and 14
+union
+select *
+from bluebikes_2017
+where date_part('month',start_time) = 7 and date_part('day',start_time) between 1 and 14
+union
+select *
+from bluebikes_2018
+where date_part('month',start_time) = 7 and date_part('day',start_time) between 1 and 14
+union
+select *
+from bluebikes_2019
+where date_part('month',start_time) = 7 and date_part('day',start_time) between 1 and 14
+
+
 --Total rides
 select count(bike_id)
 from bluebikes_2019;

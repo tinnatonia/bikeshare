@@ -8,9 +8,10 @@ readme.md - you are currently reading this. hello!
 
 **Notes:**
 
-Assumptions: 
+Assumptions/Limitations: 
 -only relevant riders are customers/casual riders. All data has been filtered to only show user_type 'Customer'
 -peak seasons is April - October
+-inequal number of start/end trips for the same time period, moving forward I will use start_trips for the functional total trip count
 
 Top 10 Stations by trip are as follows: 
 74
