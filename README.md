@@ -1,30 +1,27 @@
-**Bikeshare Project for General Assembly DAI Program**
+# **Bikeshare Project for General Assembly DAI Program**
 
-**Table of Contents:**
-bikeshare.sql - SQL Queries and notes
-end_stations - all end stations 2016-2019, coordinates, and count of rides ended there
-start_stations - all start stations 2016-2019, coordinates, and count of rides started there
-readme.md - you are currently reading this. hello!
+## **Table of Contents:**
+-sql_queries - directory to hold individual impactful queries
+-bikeshare.sql - SQL Queries and notes in general
+-end_stations - all end stations 2016-2019, coordinates, and count of rides ended there
+-start_stations - all start stations 2016-2019, coordinates, and count of rides started there
+-readme.md - you are currently reading this. hello!
+-.gitignore - filters out all_trips.csv
+-acute_care_hospitals.zip - hospital data
+-colleges.zip - college data
+-july_trips.csv - july trips to zoom in
+-
+## **Notes:**
 
-**Notes:**
-
-Assumptions/Limitations: 
+### **Assumptions/Limitations:** 
 -only relevant riders are customers/casual riders. All data has been filtered to only show user_type 'Customer'
 -peak seasons is April - October
 -inequal number of start/end trips for the same time period, moving forward I will use start_trips for the functional total trip count
 
+
+## Notes:
 Top 10 Stations by trip are as follows: 
-74
-67
-58
-36
-22
-42
-53
-20 start but not end
-60
-47
-23 end but not start
+74, 67, 58, 36, 22, 42, 53, 20 (start but not end), 60, 47, 23 (end but not start)
 
 
 [Boston Rush Hour Info](https://www.ctps.org/subjects/traffic-volumes#:~:text=Abstract-,Average%20weekday%20daily%20traffic%20(AWDT)%20volumes%20and%20peak%20period%20hourly,Hopkinton%20and%20Route%20110%2C%20Chelmsford.)
